@@ -1,39 +1,90 @@
+/* Configuração geral */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradiente de fundo */
+    color: #fff;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    overflow: hidden;
 }
 
+/* Container principal */
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px;
     text-align: center;
-    max-width: 400px;
-    width: 100%;
+    width: 350px;
+    backdrop-filter: blur(10px); /* Efeito de desfocar o fundo */
 }
 
+/* Título */
 h1 {
+    font-size: 1.8rem;
+    color: #ffe600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo dos controles (input de número) */
+.controls label {
+    font-size: 1.1rem;
+    display: block;
+    margin: 15px 0 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
     color: #333;
 }
 
-.controls label {
-    display: block;
-    margin: 10px 0 5px;
+/* Foco nos inputs */
+input[type="number"]:focus {
+    border-color: #007acc;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 122, 204, 0.5);
 }
 
-input[type="range"] {
-    width: 100%;
-    margin: 10px 0;
-}
-
+/* Estilo da área de saída */
 .output {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
     margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
     font-size: 1.2rem;
-    color: #007acc;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Destaque para os valores */
+#voltageValue, #resistanceValue, #currentValue {
+    color: #ffe600;
+    font-weight: bold;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 400px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .output {
+        font-size: 1rem;
+    }
 }
