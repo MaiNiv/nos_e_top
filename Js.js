@@ -1,25 +1,25 @@
 // Selecionando os elementos
-const voltageSlider = document.getElementById("voltage");
-const resistanceSlider = document.getElementById("resistance");
-const voltageValue = document.getElementById("voltageValue");
-const resistanceValue = document.getElementById("resistanceValue");
+const voltageInput = document.getElementById("voltage");
+const resistanceInput = document.getElementById("resistance");
 const currentValue = document.getElementById("currentValue");
 
 // Função para calcular a corrente
 function calculateCurrent() {
-    const voltage = parseFloat(voltageSlider.value);
-    const resistance = parseFloat(resistanceSlider.value);
-    const current = (voltage / resistance).toFixed(2); // Calcula I = V / R
+    const voltage = parseFloat(voltageInput.value); // Valor da tensão
+    const resistance = parseFloat(resistanceInput.value); // Valor da resistência
 
-    // Atualiza os valores na interface
-    voltageValue.textContent = voltage;
-    resistanceValue.textContent = resistance;
-    currentValue.textContent = current;
+    // Verifica se os valores são válidos
+    if (voltage > 0 && resistance > 0) {
+        const current = (voltage / resistance).toFixed(2); // Calcula I = V / R
+        currentValue.textContent = current; // Atualiza o valor da corrente
+    } else {
+        currentValue.textContent = "—"; // Mostra um traço se os valores forem inválidos
+    }
 }
 
-// Adicionando eventos
-voltageSlider.addEventListener("input", calculateCurrent);
-resistanceSlider.addEventListener("input", calculateCurrent);
+// Adicionando eventos para calcular sempre que o valor mudar
+voltageInput.addEventListener("input", calculateCurrent);
+resistanceInput.addEventListener("input", calculateCurrent);
 
 // Inicializando com valores padrão
 calculateCurrent();
